@@ -5,12 +5,12 @@ class AuthController {
     #service;
     constructor() {
         autoBind(this)
-        this.#service = authService
+        this.#service = AuthService
     }
     async sendOTP(req, res, next) {
         try {
             const { mobile } = req.body;
-            const result = await this.#service.sendOTP(mobile);
+            await this.#service.sendOTP(mobile);
             return {
                 message: AuthMessage.SendOtpSuccessfully
             }
