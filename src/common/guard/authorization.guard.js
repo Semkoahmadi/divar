@@ -3,12 +3,9 @@ const AuthorizationMessage = require("../messages/auth.messages");
 const jwt = require("jsonwebtoken");
 const UserModel = require("../../modules/user/user.model");
 require("dotenv").config();
-
 const Authorization = async (req, res, next) => {
     try {
         const token = req?.cookies?.access_token;
-        console.log(req.cookies);
-        
         if (!token) throw new CreateHttpError.Unauthorized(AuthorizationMessage.Login);
         const data = jwt.verify(token, process.env.JWT_SECRET_KEY);
         if (typeof data === "object" && "id" in data) {
@@ -20,8 +17,6 @@ const Authorization = async (req, res, next) => {
         throw new CreateHttpError.Unauthorized(AuthorizationMessage.InvalidToken)
     } catch (error) {
         next(error)
-
     }
 }
-
 module.exports = Authorization
