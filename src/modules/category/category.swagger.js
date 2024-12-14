@@ -44,12 +44,11 @@
  *          201:
  *              description: created
  */
-
 /**
  * @swagger
  * /category:
  *  get:
- *      summary: get category and module exports
+ *      summary: get all category 
  *      tags:
  *          -   Category
  *      responses:
