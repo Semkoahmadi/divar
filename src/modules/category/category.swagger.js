@@ -2,7 +2,7 @@
  * @swagger
  * tags:
  *  name: Category
- *  description: Category module and Routes
+ *  description: Category Module and Routes
  */
 
 /**
@@ -22,14 +22,14 @@
  *                  icon:
  *                      type: string
  *                  parent:
- *                      type: string                 
+ *                      type: string
  */
 
 /**
  * @swagger
  * /category:
  *  post:
- *      summary: category and module and exports
+ *      summary: create new category
  *      tags:
  *          -   Category
  *      requestBody:
@@ -41,17 +41,31 @@
  *                  schema:
  *                      $ref: '#/components/schemas/CreateCategory'
  *      responses:
- *          201:
+ *          201: 
  *              description: created
  */
 /**
  * @swagger
  * /category:
  *  get:
- *      summary: get all category 
+ *      summary: get all categories
  *      tags:
  *          -   Category
  *      responses:
- *          200:
+ *          200:  
+ *              description: successfully
+ */
+/**
+ * @swagger
+ * /category/{id}:
+ *  delete:
+ *      summary: get all categories
+ *      tags:
+ *          -   Category
+ *      parameters:
+ *          -   in: path
+ *              name: id
+ *      responses:
+ *          200: 
  *              description: successfully
  */
