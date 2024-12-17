@@ -4,9 +4,9 @@ const {upload} = require("../../common/utiles/multer");
 const Authorization = require("../../common/guard/authorization.guard");
 
 const router = Router();
-router.get("/create", Authorization, postController.createPostPage);
-router.post("/create", Authorization, upload.array("images", 10), postController.create);
-router.get("/my", Authorization, postController.findMyPosts);
+router.get("/create", postController.createPostPage);
+router.post("/create", upload.array("images", 10), postController.create);
+router.get("/my", postController.findMyPosts);
 router.delete("/delete/:id", Authorization, postController.remove);
 router.get("/:id", postController.showPost);
 module.exports = {
